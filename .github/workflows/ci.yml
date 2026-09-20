@@ -1,0 +1,30 @@
+name: To-Do App CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check required files
+        run: |
+          test -f index.html
+          test -f script.js
+          test -f style.css
+
+      - name: Check HTML
+        run: |
+          grep -q "<html" index.html
+          grep -q "<script" index.html
+          grep -q "<link" index.html
+
+      - name: Check JavaScript
+        run: |
+          node --check script.js
