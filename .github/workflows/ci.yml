@@ -27,4 +27,4 @@ jobs:
 
       - name: Check JavaScript
         run: |
-          node --check script.js
+          node --check wrong.js
