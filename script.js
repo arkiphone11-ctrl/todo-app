@@ -24,3 +24,7 @@ function addTask() {
 function deleteTask(button) {
     button.parentElement.remove();
 }
+
+function clearAll() {
+    document.getElementById("taskList").innerHTML = "";
+}
